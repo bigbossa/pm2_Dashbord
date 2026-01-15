@@ -1,0 +1,302 @@
+:root {
+  --brand: #5b8cd8;
+  --brand-dark: #3e6fc2;
+  --green: #20c997;
+  --green-dark: #17a589;
+}
+
+/* Base */
+body {
+  background: #f6f7fb;
+  font-family: "Prompt", sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* Sidebar (Desktop default) */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100vh;
+  background: var(--brand);
+  color: #fff;
+  padding: 20px;
+}
+.sidebar h4 {
+  font-size: 1.3rem;
+}
+.sidebar a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: 0.2s;
+  font-size: 1.1rem;
+}
+.sidebar a.active,
+.sidebar a:hover {
+  background: var(--brand-dark);
+}
+
+/* Main + Navbar */
+.main {
+  margin-left: 240px;
+  padding: 20px;
+}
+.navbar-mini {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+}
+.username {
+  font-weight: 700;
+  color: #334155;
+  font-size: 1.15rem;
+}
+
+/* Card */
+.card-soft {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  text-align: initial; /* ยกเลิกกึ่งกลาง */
+  padding: 40px 20px;
+  font-size: 1.05rem;
+}
+
+/* Top filter bar */
+.filterbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  padding: 10px 16px;
+  margin-bottom: 12px;
+}
+
+/* Buttons */
+.btn-main {
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 14px 50px;
+  transition: 0.25s ease;
+}
+.btn-receive {
+  background: linear-gradient(90deg, var(--brand), var(--brand-dark));
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(91, 140, 216, 0.3);
+}
+.btn-receive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(91, 140, 216, 0.4);
+}
+.btn-finish {
+  background: linear-gradient(90deg, var(--green), var(--green-dark));
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(32, 201, 151, 0.3);
+}
+.btn-finish:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(32, 201, 151, 0.4);
+}
+
+/* DataTable alignment (ยังเก็บไว้เผื่อใช้) */
+#jobTable thead th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+#jobTable tbody td {
+  text-align: left !important;
+}
+#jobTable td.col-qty,
+#jobTable th.col-qty {
+  text-align: right !important;
+}
+#jobTable td:last-child,
+#jobTable th:last-child {
+  text-align: center !important;
+}
+
+/* ปุ่มบนแถบให้ตัดกับพื้นหลัง */
+.navbar-mini .btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+
+/* ========= Mobile: sidebar เป็น top drawer จากด้านบน ========= */
+@media (max-width: 992px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    overflow: auto;
+    background: var(--brand) !important;
+    color: #fff !important;
+    z-index: 1045;
+    transform: translateY(-100%);
+    transition: transform 0.25s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 16px 20px;
+  }
+  .sidebar.open {
+    transform: translateY(0);
+  }
+
+  .main {
+    margin-left: 0;
+  } /* ไม่ดันเนื้อหาในจอเล็ก */
+
+  .sidebar a {
+    color: #fff;
+  }
+  .sidebar a.active,
+  .sidebar a:hover {
+    background: var(--brand-dark);
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    display: none;
+    z-index: 1040;
+  }
+  .sidebar-overlay.show {
+    display: block;
+  }
+}
+
+/* ========= Desktop: คงพฤติกรรม/สีเดิม ========= */
+@media (min-width: 992px) {
+  .sidebar {
+    transform: none !important;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .main {
+    margin-left: 240px;
+  }
+}
+.nojob-box {
+  padding: 25px 10px;
+  animation: fadeIn 0.35s ease-in-out;
+}
+
+.nojob-icon {
+  font-size: 48px;
+  opacity: 0.8;
+}
+
+.nojob-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 8px;
+  color: #6c757d;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ========== Desktop / จอใหญ่ (ค่าเริ่มต้น) ========== */
+.filter-dates {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-block {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.filter-block label {
+  margin-bottom: 0;
+  margin-right: 4px;
+}
+
+.filter-end-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-block input[type="date"] {
+  width: 160px;  /* ให้ start / end กว้างเท่ากัน */
+}
+
+#btnClearRange {
+  white-space: nowrap;
+  height: 31px;
+  margin-top: 0;
+}
+/* ========== Mobile / สมาร์ทโฟน ========== */
+@media (max-width: 576px) {
+
+  .filter-dates {
+    flex-direction: column !important;
+    align-items: flex-start !important;   /* ⬅ ชิดซ้าย */
+    justify-content: flex-start !important;
+    width: 100%;
+    gap: 10px;
+    text-align: left !important;          /* ⬅ กันเบี้ยว */
+  }
+
+  .filter-block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;   /* ⬅ ชิดซ้าย */
+    text-align: left !important;
+    gap: 4px;
+  }
+
+  .filter-block label {
+    width: auto;
+    text-align: left !important;
+  }
+
+  .filter-end-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center !important;
+    justify-content: flex-start !important;  /* ⬅ กันลอยกลาง */
+    gap: 8px;
+  }
+
+  .filter-block input[type="date"] {
+    width: 160px;
+    text-align: left;
+  }
+
+  #btnClearRange {
+    white-space: nowrap;
+    height: 31px;
+  }
+}
+
+

@@ -1,0 +1,293 @@
+/* ===== Variables & Base ===== */
+:root {
+  --brand: #5b8cd8;
+  --brand-dark: #3e6fc2;
+}
+body {
+  background: #f6f7fb;
+  font-family: "Prompt", sans-serif;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* ===== Sidebar / Main / Navbar ===== */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 180px; /* ⬅ ลดจาก 220px */
+  height: 100vh;
+  background: var(--brand);
+  color: #fff;
+  padding: 18px 16px; /* ปรับ padding ให้บาลานซ์ */
+  z-index: 1000;
+}
+.sidebar a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 10px; /* ลด padding ให้กระชับขึ้น */
+  border-radius: 8px; /* มุมคมนิดนึง ดูเล็กลง */
+  font-size: 0.95rem; /* ลดขนาดตัวอักษรนิดหน่อย */
+}
+.sidebar a.active,
+.sidebar a:hover {
+  background: var(--brand-dark);
+}
+
+.main {
+  margin-left: 200px; /* ตามความกว้าง sidebar ที่ตั้งไว้ */
+  padding: 20px 20px 20px 8px; /* ⬅ ลด padding ซ้ายลงจาก 20 เหลือ 8 */
+  overflow-x: auto;
+}
+
+.navbar-mini {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  gap: 12px;
+}
+.username {
+  font-weight: 700;
+  color: #334155;
+}
+
+/* ===== Cards / UI ===== */
+.card-soft {
+  background: #fff;
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  text-align: initial; /* ยกเลิกกึ่งกลาง */
+  padding: 40px 20px;
+}
+
+/* toolbar ติดบนสุด (จากไฟล์ที่สอง) */
+.sticky-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+/* badges & counters (จากไฟล์แรก) */
+.badge-pill {
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  font-size: 1.05rem;
+}
+#totalPo {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+#branchName {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+table thead th {
+  font-weight: 400 !important;
+}
+
+/* ===== Tables ===== */
+#poTable th:first-child,
+#poTable td:first-child {
+  width: 44px;
+  text-align: center;
+}
+#poTable td:first-child input {
+  transform: scale(1.05);
+}
+#poTable thead th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+/* ขยายฟอนต์เฉพาะตาราง po */
+#poTable th,
+#poTable td {
+  font-size: 16px; /* ปรับขนาดตามต้องการ เช่น 14px, 15px, 16px */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* reportTable (จากไฟล์ที่สอง) */
+#reportTable thead th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+/* ชิดขวาเฉพาะคอลัมน์ “รอบวิ่ง” (คอลัมน์ที่ 6) */
+#reportTable td:nth-child(6) {
+  text-align: right !important;
+}
+#reportTable td.col-center {
+  text-align: center !important;
+}
+input.readonly-field[readonly] {
+  background-color: #f8f9fa;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+#successTable th,
+#successTable td {
+  font-size: 15px;
+  vertical-align: middle;
+}
+#successTable th:first-child,
+#successTable td:first-child {
+  width: 44px;
+  text-align: center !important;
+}
+
+#successTable td:first-child input {
+  transform: scale(1.05);
+}
+
+/* 🟦 หัวตารางให้อยู่กึ่งกลาง */
+#successTable thead th {
+  text-align: center !important;
+}
+
+/* 🟩 ข้อมูลในเซลล์ชิดซ้าย (default) */
+#successTable td {
+  text-align: left !important;
+}
+
+/* 🟨 ตัวเลขชิดขวา */
+#successTable th.col-num,
+#successTable td.col-num {
+  text-align: right !important;
+}
+
+/* 🟧 เฉพาะบางคอลัมน์ให้กึ่งกลาง (เช่นสาขา) */
+#successTable th.col-center,
+#successTable td.col-center {
+  text-align: center !important;
+}
+
+/* promptTable (จากไฟล์ที่สาม) */
+#promptTable th,
+#promptTable td {
+  font-size: 13px;
+  vertical-align: middle;
+}
+#promptTable thead th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+#promptTable td {
+  text-align: left !important;
+}
+#promptTable th.col-num,
+#promptTable td.col-num {
+  text-align: right !important;
+}
+#promptTable th.col-center,
+#promptTable td.col-center {
+  text-align: center !important;
+}
+/* คอลัมน์ checkbox แรกของ promptTable ให้แคบและอยู่กลาง */
+#promptTable th:first-child,
+#promptTable td:first-child {
+  width: 44px;
+  text-align: center !important;
+}
+#promptTable td:first-child input {
+  transform: scale(1.05);
+}
+
+/* ===== Select2 + SweetAlert Integration ===== */
+.select2-container {
+  width: 100% !important;
+}
+/* ให้ดรอปดาวน์อยู่เหนือ Swal */
+.swal2-container .select2-dropdown {
+  z-index: 2000;
+}
+
+/* ===== Responsive Mobile ===== */
+@media (max-width: 992px) {
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    background: var(--brand);
+    transition: left 0.3s ease;
+    z-index: 9999;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+  
+  .main {
+    margin-left: 0;
+    padding: 15px;
+  }
+  
+  /* Overlay พื้นหลังมืด */
+  #sidebarOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+  }
+  
+  #sidebarOverlay.show {
+    display: block;
+  }
+  
+  /* ปุ่ม Hamburger */
+  #btnMenu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: white;
+    color: #333;
+    border: 2px solid #333;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  #btnMenu:hover {
+    background: #f0f0f0;
+  }
+  
+  /* ปรับขนาดตัวอักษรในเมนู */
+  .sidebar a {
+    font-size: 1rem;
+    padding: 12px 14px;
+  }
+  
+  .sidebar h4 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Desktop - ซ่อนปุ่ม hamburger */
+@media (min-width: 993px) {
+  #btnMenu {
+    display: none;
+  }
+  
+  #sidebarOverlay {
+    display: none !important;
+  }
+}

@@ -1,0 +1,1 @@
+path = \\192.168.1.95\data_programer$\web super

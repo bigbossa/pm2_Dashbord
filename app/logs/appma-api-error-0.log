@@ -1,0 +1,144 @@
+2026-01-12T14:43:17: ❌ Login error: Error: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+2026-01-12T14:43:17:     at C:\Users\Computer\Desktop\pm2\app\homecare\node_modules\pg-pool\index.js:45:11
+2026-01-12T14:43:17:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-12T14:43:17:     at async file:///C:/Users/Computer/Desktop/pm2/app/homecare/server/index.js:232:20
+2026-01-12T14:43:17: Error details: {
+2026-01-12T14:43:17:   message: 'SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string',
+2026-01-12T14:43:17:   code: undefined,
+2026-01-12T14:43:17:   detail: undefined,
+2026-01-12T14:43:17:   hint: undefined
+2026-01-12T14:43:17: }
+2026-01-12T14:43:29: ❌ Login error: Error: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+2026-01-12T14:43:29:     at C:\Users\Computer\Desktop\pm2\app\homecare\node_modules\pg-pool\index.js:45:11
+2026-01-12T14:43:29:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-12T14:43:29:     at async file:///C:/Users/Computer/Desktop/pm2/app/homecare/server/index.js:232:20
+2026-01-12T14:43:29: Error details: {
+2026-01-12T14:43:29:   message: 'SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string',
+2026-01-12T14:43:29:   code: undefined,
+2026-01-12T14:43:29:   detail: undefined,
+2026-01-12T14:43:29:   hint: undefined
+2026-01-12T14:43:29: }
+2026-01-12T14:44:37: ❌ Login error: Error: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+2026-01-12T14:44:37:     at C:\Users\Computer\Desktop\pm2\app\homecare\node_modules\pg-pool\index.js:45:11
+2026-01-12T14:44:37:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-12T14:44:37:     at async file:///C:/Users/Computer/Desktop/pm2/app/homecare/server/index.js:232:20
+2026-01-12T14:44:37: Error details: {
+2026-01-12T14:44:37:   message: 'SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string',
+2026-01-12T14:44:37:   code: undefined,
+2026-01-12T14:44:37:   detail: undefined,
+2026-01-12T14:44:37:   hint: undefined
+2026-01-12T14:44:37: }
+2026-01-12T14:44:43: ❌ Login error: Error: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+2026-01-12T14:44:43:     at C:\Users\Computer\Desktop\pm2\app\homecare\node_modules\pg-pool\index.js:45:11
+2026-01-12T14:44:43:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-12T14:44:43:     at async file:///C:/Users/Computer/Desktop/pm2/app/homecare/server/index.js:232:20
+2026-01-12T14:44:43: Error details: {
+2026-01-12T14:44:43:   message: 'SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string',
+2026-01-12T14:44:43:   code: undefined,
+2026-01-12T14:44:43:   detail: undefined,
+2026-01-12T14:44:43:   hint: undefined
+2026-01-12T14:44:43: }
+2026-01-12T14:45:04: ❌ Login error: error: password authentication failed for user "postgres"
+2026-01-12T14:45:04:     at C:\Users\Computer\Desktop\pm2\app\homecare\node_modules\pg-pool\index.js:45:11
+2026-01-12T14:45:04:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-12T14:45:04:     at async file:///C:/Users/Computer/Desktop/pm2/app/homecare/server/index.js:232:20 {
+2026-01-12T14:45:04:   length: 104,
+2026-01-12T14:45:04:   severity: 'FATAL',
+2026-01-12T14:45:04:   code: '28P01',
+2026-01-12T14:45:04:   detail: undefined,
+2026-01-12T14:45:04:   hint: undefined,
+2026-01-12T14:45:04:   position: undefined,
+2026-01-12T14:45:04:   internalPosition: undefined,
+2026-01-12T14:45:04:   internalQuery: undefined,
+2026-01-12T14:45:04:   where: undefined,
+2026-01-12T14:45:04:   schema: undefined,
+2026-01-12T14:45:04:   table: undefined,
+2026-01-12T14:45:04:   column: undefined,
+2026-01-12T14:45:04:   dataType: undefined,
+2026-01-12T14:45:04:   constraint: undefined,
+2026-01-12T14:45:04:   file: 'auth.c',
+2026-01-12T14:45:04:   line: '320',
+2026-01-12T14:45:04:   routine: 'auth_failed'
+2026-01-12T14:45:04: }
+2026-01-12T14:45:04: Error details: {
+2026-01-12T14:45:04:   message: 'password authentication failed for user "postgres"',
+2026-01-12T14:45:04:   code: '28P01',
+2026-01-12T14:45:04:   detail: undefined,
+2026-01-12T14:45:04:   hint: undefined
+2026-01-12T14:45:04: }
+2026-01-12T14:47:28: ❌ Login error: Error: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+2026-01-12T14:47:28:     at C:\Users\Computer\Desktop\pm2\app\homecare\node_modules\pg-pool\index.js:45:11
+2026-01-12T14:47:28:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-12T14:47:28:     at async file:///C:/Users/Computer/Desktop/pm2/app/homecare/server/index.js:238:20
+2026-01-12T14:47:28: Error details: {
+2026-01-12T14:47:28:   message: 'SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string',
+2026-01-12T14:47:28:   code: undefined,
+2026-01-12T14:47:28:   detail: undefined,
+2026-01-12T14:47:28:   hint: undefined
+2026-01-12T14:47:28: }
+2026-01-12T14:47:35: ❌ Login error: Error: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+2026-01-12T14:47:35:     at C:\Users\Computer\Desktop\pm2\app\homecare\node_modules\pg-pool\index.js:45:11
+2026-01-12T14:47:35:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-12T14:47:35:     at async file:///C:/Users/Computer/Desktop/pm2/app/homecare/server/index.js:238:20
+2026-01-12T14:47:35: Error details: {
+2026-01-12T14:47:35:   message: 'SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string',
+2026-01-12T14:47:35:   code: undefined,
+2026-01-12T14:47:35:   detail: undefined,
+2026-01-12T14:47:35:   hint: undefined
+2026-01-12T14:47:35: }
+2026-01-12T14:48:52: ❌ Login error: error: password authentication failed for user "postgres"
+2026-01-12T14:48:52:     at C:\Users\Computer\Desktop\pm2\app\homecare\node_modules\pg-pool\index.js:45:11
+2026-01-12T14:48:52:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-12T14:48:52:     at async file:///C:/Users/Computer/Desktop/pm2/app/homecare/server/index.js:238:20 {
+2026-01-12T14:48:52:   length: 104,
+2026-01-12T14:48:52:   severity: 'FATAL',
+2026-01-12T14:48:52:   code: '28P01',
+2026-01-12T14:48:52:   detail: undefined,
+2026-01-12T14:48:52:   hint: undefined,
+2026-01-12T14:48:52:   position: undefined,
+2026-01-12T14:48:52:   internalPosition: undefined,
+2026-01-12T14:48:52:   internalQuery: undefined,
+2026-01-12T14:48:52:   where: undefined,
+2026-01-12T14:48:52:   schema: undefined,
+2026-01-12T14:48:52:   table: undefined,
+2026-01-12T14:48:52:   column: undefined,
+2026-01-12T14:48:52:   dataType: undefined,
+2026-01-12T14:48:52:   constraint: undefined,
+2026-01-12T14:48:52:   file: 'auth.c',
+2026-01-12T14:48:52:   line: '320',
+2026-01-12T14:48:52:   routine: 'auth_failed'
+2026-01-12T14:48:52: }
+2026-01-12T14:48:52: Error details: {
+2026-01-12T14:48:52:   message: 'password authentication failed for user "postgres"',
+2026-01-12T14:48:52:   code: '28P01',
+2026-01-12T14:48:52:   detail: undefined,
+2026-01-12T14:48:52:   hint: undefined
+2026-01-12T14:48:52: }
+2026-01-12T14:49:03: ❌ Login error: error: password authentication failed for user "postgres"
+2026-01-12T14:49:03:     at C:\Users\Computer\Desktop\pm2\app\homecare\node_modules\pg-pool\index.js:45:11
+2026-01-12T14:49:03:     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-12T14:49:03:     at async file:///C:/Users/Computer/Desktop/pm2/app/homecare/server/index.js:238:20 {
+2026-01-12T14:49:03:   length: 104,
+2026-01-12T14:49:03:   severity: 'FATAL',
+2026-01-12T14:49:03:   code: '28P01',
+2026-01-12T14:49:03:   detail: undefined,
+2026-01-12T14:49:03:   hint: undefined,
+2026-01-12T14:49:03:   position: undefined,
+2026-01-12T14:49:03:   internalPosition: undefined,
+2026-01-12T14:49:03:   internalQuery: undefined,
+2026-01-12T14:49:03:   where: undefined,
+2026-01-12T14:49:03:   schema: undefined,
+2026-01-12T14:49:03:   table: undefined,
+2026-01-12T14:49:03:   column: undefined,
+2026-01-12T14:49:03:   dataType: undefined,
+2026-01-12T14:49:03:   constraint: undefined,
+2026-01-12T14:49:03:   file: 'auth.c',
+2026-01-12T14:49:03:   line: '320',
+2026-01-12T14:49:03:   routine: 'auth_failed'
+2026-01-12T14:49:03: }
+2026-01-12T14:49:03: Error details: {
+2026-01-12T14:49:03:   message: 'password authentication failed for user "postgres"',
+2026-01-12T14:49:03:   code: '28P01',
+2026-01-12T14:49:03:   detail: undefined,
+2026-01-12T14:49:03:   hint: undefined
+2026-01-12T14:49:03: }

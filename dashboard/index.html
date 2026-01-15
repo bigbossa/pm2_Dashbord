@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM2 Dashboard - System Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-right: 15px;
+        }
+
+        .frontend {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .backend {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .service-info h2 {
+            font-size: 1.5em;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .port-badge {
+            display: inline-block;
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .service-description {
+            color: #718096;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #48bb78;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            opacity: 0.8;
+        }
+
+        .quick-links {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-top: 30px;
+        }
+
+        .quick-links h3 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .link-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .quick-link-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .quick-link-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 PM2 Dashboard</h1>
+            <p class="subtitle">System Overview & Quick Access</p>
+        </header>
+
+        <div class="services-grid">
+            <!-- HomeCare Frontend -->
+            <a href="http://192.168.19.37:3000/homecare/" target="_blank" class="service-card">
+                <div class="service-header">
+                    <div class="service-icon frontend">🏠</div>
+                    <div class="service-info">
+                        <h2>HomeCare Assistant</h2>
+                        <span class="port-badge">Port 3000</span>
+                    </div>
+                </div>
+                <div class="service-description">
+                    <span class="status-indicator"></span>
+                    <strong>Frontend (Vite)</strong><br>
+                    ระบบจัดการบ้านและการบำรุงรักษา - ติดตามงานซ่อมแซมและบำรุงรักษาบ้าน
+                </div>
+            </a>
+
+            <!-- Repair System Frontend -->
+            <a href="http://192.168.19.37:3000/repair/" target="_blank" class="service-card">
+                <div class="service-header">
+                    <div class="service-icon frontend">🔧</div>
+                    <div class="service-info">
+                        <h2>Repair System</h2>
+                        <span class="port-badge">Port 3000</span>
+                    </div>
+                </div>
+                <div class="service-description">
+                    <span class="status-indicator"></span>
+                    <strong>Frontend (Next.js)</strong><br>
+                    ระบบจัดการซ่อมบำรุง - แอปพลิเคชันสำหรับติดตามและจัดการงานซ่อม
+                </div>
+            </a>
+
+            <!-- HomeCare Backend -->
+            <a href="http://192.168.19.37:2001" target="_blank" class="service-card">
+                <div class="service-header">
+                    <div class="service-icon backend">⚙️</div>
+                    <div class="service-info">
+                        <h2>HomeCare API</h2>
+                        <span class="port-badge">Port 3000</span>
+                    </div>
+                </div>
+                <div class="service-description">
+                    <span class="status-indicator"></span>
+                    <strong>Backend (Node.js + Express)</strong><br>
+                    REST API สำหรับ HomeCare Assistant - จัดการข้อมูลและฐานข้อมูล PostgreSQL
+                </div>
+            </a>
+            <!-- Auto PO System -->
+            <a href="http://192.168.19.37:3000/autopo/login" target="_blank" class="service-card">
+                <div class="service-header">
+                    <div class="service-icon backend">⚙️</div>
+                    <div class="service-info">
+                        <h2>AutoPO System</h2>
+                        <span class="port-badge">Port 3000</span>
+                    </div>
+                </div>
+                <div class="service-description">
+                    <span class="status-indicator"></span>
+                    <strong>Backend (Node.js + Express)</strong><br>
+                </div>
+            </a>
+             <a href="http://192.168.19.37:3000/ycsalescrm" target="_blank" class="service-card">
+                <div class="service-header">
+                    <div class="service-icon backend">⚙️</div>
+                    <div class="service-info">
+                        <h2>Ycsalescrm System</h2>
+                        <span class="port-badge">Port 3000</span>
+                    </div>
+                </div>
+                <div class="service-description">
+                    <span class="status-indicator"></span>
+                    <strong>Backend (Node.js + Express)</strong><br>
+                </div>
+            </a>
+        </div>
+
+        <div class="quick-links">
+            <h3>⚡ Quick Links</h3>
+            <div class="link-list">
+                <a href="http://192.168.19.37:1001" target="_blank" class="quick-link-btn">🏠 HomeCare</a>
+                <a href="http://192.168.19.37:1002" target="_blank" class="quick-link-btn">🔧 Repair</a>
+                <a href="http://192.168.19.37:2001" target="_blank" class="quick-link-btn">⚙️ API</a>
+                <a href="http://192.168.19.37:2001/api" target="_blank" class="quick-link-btn">📊 API Docs</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 PM2 Dashboard | All services managed by PM2</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                💡 Tip: Keep this page bookmarked for quick access to all services
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Check service availability
+        async function checkService(url, element) {
+            try {
+                const response = await fetch(url, { mode: 'no-cors' });
+                // no-cors mode doesn't allow reading response, but it won't fail if service exists
+                element.style.background = '#48bb78'; // green
+            } catch (error) {
+                element.style.background = '#f56565'; // red
+            }
+        }
+
+        // Check all services on load
+        window.addEventListener('load', () => {
+            const indicators = document.querySelectorAll('.status-indicator');
+            const urls = [
+                'http://192.168.19.37:1001',
+                'http://192.168.19.37:1002',
+                'http://192.168.19.37:2001'
+            ];
+            
+            indicators.forEach((indicator, index) => {
+                setTimeout(() => {
+                    checkService(urls[index], indicator);
+                }, index * 500);
+            });
+        });
+
+        // Update timestamp
+        setInterval(() => {
+            const now = new Date();
+            console.log('Dashboard active:', now.toLocaleTimeString('th-TH'));
+        }, 60000);
+    </script>
+</body>
+</html>
