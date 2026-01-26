@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แก้ไขผู้ใช้งาน</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notiflix@3.2.6/dist/notiflix-3.2.6.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/notiflix@3.2.6/dist/notiflix-3.2.6.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" style="display:inline-block; margin-bottom:10px; text-decoration:none;">← กลับหน้ารายชื่อ</a>
+    <div class="header">
+        <h2>แก้ไขข้อมูลผู้ใช้งาน</h2>
+    </div>
+
+    <input type="hidden" id="userId">
+
+    <div class="form-section">
+        <div class="input-group">
+            <label>Username</label>
+            <input type="text" id="username" disabled style="background-color: #eee;">
+        </div>
+        <!-- Password usually not shown/edited here directly unless requested, maybe a reset button later -->
+        <div class="input-group">
+            <label>ชื่อ-นามสกุล</label>
+            <input type="text" id="usersname">
+        </div>
+        <div class="input-group">
+            <label>แผนก</label>
+            <input type="text" id="department">
+        </div>
+        <div class="input-group">
+            <label>Site</label>
+            <input type="text" id="site">
+        </div>
+    </div>
+
+    <hr>
+
+    <h3>กำหนดสิทธิ์การเข้าใช้งาน</h3>
+    <table id="accessTable">
+        <thead>
+            <tr>
+                <th width="10%">เลือก</th>
+                <th width="50%">ระบบงาน (Program)</th>
+                <th width="40%">สิทธิ์ (Role)</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            </tbody>
+    </table>
+
+    <div class="actions">
+        <button id="btnSave" onclick="updateUser()">บันทึกการแก้ไข</button>
+    </div>
+</div>
+
+<script src="auth-check.js"></script>
+<script src="edit_user.js"></script>
+</body>
+</html>

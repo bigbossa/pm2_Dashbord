@@ -1,35 +1,40 @@
-const http = require('http');
-const fs = require('fs');
+require('dotenv').config();
+const express = require('express');
 const path = require('path');
+const session = require('express-session');
+const bodyParser = require('body-parser');
+const userRoutes = require('./routes/userRoutes');
 
-const PORT = 3000;
+const app = express();
+const PORT = process.env.PORT || 3010;
 
-const server = http.createServer((req, res) => {
-  const filePath = req.url === '/' ? '/index.html' : req.url;
-  const fullPath = path.join(__dirname, filePath);
-  
-  fs.readFile(fullPath, (err, data) => {
-    if (err) {
-      res.writeHead(404);
-      res.end('Not Found');
-      return;
+// Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Session
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'your-secret-key-here',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { 
+        secure: false,
+        maxAge: 24 * 60 * 60 * 1000 // 24 hours
     }
-    
-    const ext = path.extname(fullPath);
-    const contentType = {
-      '.html': 'text/html',
-      '.css': 'text/css',
-      '.js': 'text/javascript',
-      '.json': 'application/json'
-    }[ext] || 'text/plain';
-    
-    res.writeHead(200, { 'Content-Type': contentType });
-    res.end(data);
-  });
+}));
+
+// Static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Routes
+app.use('/api', userRoutes);
+
+// Root redirect
+app.get('/', (req, res) => {
+    res.redirect('/login.html');
 });
 
-server.listen(1000, () => {
-  console.log('Dashboard running at http://localhost:1000');
+// Start server
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
 });
-
-console.log('Dashboard running at http://localhost:1000');
