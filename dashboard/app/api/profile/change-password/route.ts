@@ -68,11 +68,12 @@ export async function POST(request: NextRequest) {
 
       // Log activity
       await client.query(
-        `INSERT INTO activity_logs (user_id, action, details, ip_address, created_at) 
-         VALUES ($1, $2, $3, $4, NOW())`,
+        `INSERT INTO activity_logs (user_id, action, module, description, ip_address, created_at) 
+         VALUES ($1, $2, $3, $4, $5, NOW())`,
         [
           session.userId,
           'UPDATE',
+          'โปรไฟล์',
           'User changed password',
           request.headers.get('x-forwarded-for') || 'unknown'
         ]

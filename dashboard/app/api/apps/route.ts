@@ -52,10 +52,11 @@ export async function POST(request: NextRequest) {
     )
 
     // สร้าง activity log
+    const ipAddress = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
     await pool.query(
-      `INSERT INTO activity_logs (user_id, action, module, description) 
-       VALUES ($1, $2, $3, $4)`,
-      [session.userId, 'create_app', 'apps', `สร้าง App ${name}`]
+      `INSERT INTO activity_logs (user_id, action, module, description, ip_address) 
+       VALUES ($1, $2, $3, $4, $5)`,
+      [session.userId, 'create_app', 'apps', `สร้าง App ${name}`, ipAddress]
     )
 
     return NextResponse.json({ success: true, data: result.rows[0] }, {
@@ -136,10 +137,11 @@ export async function PATCH(request: NextRequest) {
     }
 
     // สร้าง activity log
+    const ipAddress = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
     await pool.query(
-      `INSERT INTO activity_logs (user_id, action, module, description) 
-       VALUES ($1, $2, $3, $4)`,
-      [session.userId, 'update_app', 'apps', `อัปเดต App ${name || id}`]
+      `INSERT INTO activity_logs (user_id, action, module, description, ip_address) 
+       VALUES ($1, $2, $3, $4, $5)`,
+      [session.userId, 'update_app', 'apps', `อัปเดต App ${name || id}`, ipAddress]
     )
 
     return NextResponse.json({ success: true, data: result.rows[0] }, {
@@ -185,10 +187,11 @@ export async function DELETE(request: NextRequest) {
     }
 
     // สร้าง activity log
+    const ipAddress = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
     await pool.query(
-      `INSERT INTO activity_logs (user_id, action, module, description) 
-       VALUES ($1, $2, $3, $4)`,
-      [session.userId, 'delete_app', 'apps', `ลบ App ${result.rows[0].name}`]
+      `INSERT INTO activity_logs (user_id, action, module, description, ip_address) 
+       VALUES ($1, $2, $3, $4, $5)`,
+      [session.userId, 'delete_app', 'apps', `ลบ App ${result.rows[0].name}`, ipAddress]
     )
 
     return NextResponse.json({ success: true }, {

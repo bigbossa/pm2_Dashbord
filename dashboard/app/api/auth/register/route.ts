@@ -55,10 +55,11 @@ export async function POST(request: NextRequest) {
     const newUser = result.rows[0]
 
     // สร้าง activity log
+    const ipAddress = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
     await pool.query(
-      `INSERT INTO activity_logs (user_id, action, module, description) 
-       VALUES ($1, $2, $3, $4)`,
-      [newUser.id, 'register', 'auth', `ผู้ใช้ ${username} สมัครสมาชิกใหม่`]
+      `INSERT INTO activity_logs (user_id, action, module, description, ip_address) 
+       VALUES ($1, $2, $3, $4, $5)`,
+      [newUser.id, 'register', 'auth', `ผู้ใช้ ${username} สมัครสมาชิกใหม่`, ipAddress]
     )
 
     // หาข้อมูล role

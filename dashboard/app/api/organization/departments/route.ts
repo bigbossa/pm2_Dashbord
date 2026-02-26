@@ -66,10 +66,11 @@ export async function POST(request: NextRequest) {
     )
 
     // สร้าง activity log
+    const ipAddress = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
     await pool.query(
-      `INSERT INTO activity_logs (user_id, action, module, description) 
-       VALUES ($1, $2, $3, $4)`,
-      [session.userId, 'create', 'departments', `สร้างแผนก ${name}`]
+      `INSERT INTO activity_logs (user_id, action, module, description, ip_address) 
+       VALUES ($1, $2, $3, $4, $5)`,
+      [session.userId, 'create', 'departments', `สร้างแผนก ${name}`, ipAddress]
     )
 
     return NextResponse.json({ success: true, data: result.rows[0] })
@@ -109,10 +110,11 @@ export async function PATCH(request: NextRequest) {
     }
 
     // สร้าง activity log
+    const ipAddress = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
     await pool.query(
-      `INSERT INTO activity_logs (user_id, action, module, description) 
-       VALUES ($1, $2, $3, $4)`,
-      [session.userId, 'update', 'departments', `อัปเดตแผนก ${name}`]
+      `INSERT INTO activity_logs (user_id, action, module, description, ip_address) 
+       VALUES ($1, $2, $3, $4, $5)`,
+      [session.userId, 'update', 'departments', `อัปเดตแผนก ${name}`, ipAddress]
     )
 
     return NextResponse.json({ success: true, data: result.rows[0] })
@@ -159,10 +161,11 @@ export async function DELETE(request: NextRequest) {
     }
 
     // สร้าง activity log
+    const ipAddress = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
     await pool.query(
-      `INSERT INTO activity_logs (user_id, action, module, description) 
-       VALUES ($1, $2, $3, $4)`,
-      [session.userId, 'delete', 'departments', `ลบแผนก ${result.rows[0].name}`]
+      `INSERT INTO activity_logs (user_id, action, module, description, ip_address) 
+       VALUES ($1, $2, $3, $4, $5)`,
+      [session.userId, 'delete', 'departments', `ลบแผนก ${result.rows[0].name}`, ipAddress]
     )
 
     return NextResponse.json({ success: true })

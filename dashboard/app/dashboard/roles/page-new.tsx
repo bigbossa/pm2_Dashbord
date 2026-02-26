@@ -469,12 +469,12 @@ function RolesView({ roles, loading, error, subDepartment, fetchRoles }: {
     name: '',
     description: '',
     permissions: [] as Permission[],
-    level: 'entry' as string,
+    level: 'staff' as string,
     code: ''
   })
 
   const resetForm = () => {
-    setFormData({ name: '', description: '', permissions: [], level: 'entry', code: '' })
+    setFormData({ name: '', description: '', permissions: [], level: 'staff', code: '' })
   }
 
   const handleCreate = async () => {
@@ -581,7 +581,7 @@ function RolesView({ roles, loading, error, subDepartment, fetchRoles }: {
                     <div>
                       <CardTitle className="text-lg">{role.name}</CardTitle>
                       <CardDescription className="text-xs">
-                        {role.level ? `ระดับ: ${role.level}` : '-'}
+                        {role.level ? `Role: ${role.level}` : '-'}
                       </CardDescription>
                     </div>
                   </div>
@@ -644,16 +644,18 @@ function RolesView({ roles, loading, error, subDepartment, fetchRoles }: {
                 <Input value={formData.code} onChange={(e) => setFormData({ ...formData, code: e.target.value })} />
               </div>
               <div className="space-y-2">
-                <Label>ระดับ</Label>
+                <Label>Role</Label>
                 <Select value={formData.level} onValueChange={(v) => setFormData({ ...formData, level: v })}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="entry">Entry</SelectItem>
-                    <SelectItem value="senior">Senior</SelectItem>
-                    <SelectItem value="manager">Manager</SelectItem>
-                    <SelectItem value="executive">Executive</SelectItem>
+                    <SelectItem value="superadmin">SuperAdmin</SelectItem>
+                    <SelectItem value="systemadmin">SystemAdmin</SelectItem>
+                    <SelectItem value="branchadmin">BranchAdmin</SelectItem>
+                    <SelectItem value="departmenthead">DepartmentHead</SelectItem>
+                    <SelectItem value="staff">Staff</SelectItem>
+                    <SelectItem value="viewer">Viewer</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

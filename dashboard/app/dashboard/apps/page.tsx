@@ -367,8 +367,15 @@ function AppsPageContent() {
                 .filter(Boolean)
 
             return (
-              <Card key={app.id} className="relative group">
-                <CardHeader className="pb-3">
+              <Card 
+                key={app.id} 
+                className={`relative group ${app.url && app.status === 'active' ? 'cursor-pointer hover:shadow-lg hover:border-primary/30 transition-all' : ''}`}
+                onClick={() => {
+                  if (app.url && app.status === 'active') {
+                    window.location.href = app.url
+                  }
+                }}
+              >                <CardHeader className="pb-3">
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-3">
                       <div className={`p-3 rounded-xl ${status.bgColor}`}>
@@ -383,6 +390,7 @@ function AppsPageContent() {
                               target="_blank"
                               rel="noopener noreferrer"
                               className="text-muted-foreground hover:text-primary"
+                              onClick={(e) => e.stopPropagation()}
                             >
                               <ExternalLink className="h-4 w-4" />
                             </a>
@@ -398,7 +406,7 @@ function AppsPageContent() {
                     </div>
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
+                        <Button variant="ghost" size="icon" className="h-8 w-8" onClick={(e) => e.stopPropagation()}>
                           <MoreHorizontal className="h-4 w-4" />
                         </Button>
                       </DropdownMenuTrigger>

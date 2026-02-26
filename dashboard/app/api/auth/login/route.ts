@@ -14,12 +14,12 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // หาผู้ใช้จากฐานข้อมูล
+    // หาผู้ใช้จากฐานข้อมูล (case-insensitive)
     const result = await pool.query(
       `SELECT u.*, r.name as role_name, r.permissions 
        FROM users u 
        LEFT JOIN roles r ON u.role_id = r.id 
-       WHERE u.username = $1`,
+       WHERE LOWER(u.username) = LOWER($1)`,
       [username]
     )
 
@@ -47,8 +47,9 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // ตรวจสอบรหัสผ่าน
-    const isValidPassword = await bcrypt.compare(password, user.password_hash)
+    // ตรวจสอบรหัสผ่าน (รองรับ $2y$ hash จาก PHP)
+    const passwordHash = user.password_hash.replace(/^\$2y\$/, '$2b$')
+    const isValidPassword = await bcrypt.compare(password, passwordHash)
     
     if (!isValidPassword) {
       return NextResponse.json(
@@ -64,10 +65,11 @@ export async function POST(request: NextRequest) {
     )
 
     // สร้าง activity log
+    const ipAddress = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
     await pool.query(
-      `INSERT INTO activity_logs (user_id, action, module, description) 
-       VALUES ($1, $2, $3, $4)`,
-      [user.id, 'login', 'auth', `ผู้ใช้ ${username} เข้าสู่ระบบ`]
+      `INSERT INTO activity_logs (user_id, action, module, description, ip_address) 
+       VALUES ($1, $2, $3, $4, $5)`,
+      [user.id, 'login', 'auth', `ผู้ใช้ ${username} เข้าสู่ระบบ`, ipAddress]
     )
 
     // สร้าง JWT token

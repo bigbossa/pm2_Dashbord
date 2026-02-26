@@ -51,10 +51,11 @@ export async function POST(request: NextRequest) {
     )
 
     // สร้าง activity log
+    const ipAddress = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
     await pool.query(
-      `INSERT INTO activity_logs (user_id, action, module, description) 
-       VALUES ($1, $2, $3, $4)`,
-      [session.userId, 'create', 'branches', `สร้างสาขา ${name}`]
+      `INSERT INTO activity_logs (user_id, action, module, description, ip_address) 
+       VALUES ($1, $2, $3, $4, $5)`,
+      [session.userId, 'create', 'branches', `สร้างสาขา ${name}`, ipAddress]
     )
 
     return NextResponse.json({ success: true, data: result.rows[0] })
@@ -94,10 +95,11 @@ export async function PATCH(request: NextRequest) {
     }
 
     // สร้าง activity log
+    const ipAddress = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
     await pool.query(
-      `INSERT INTO activity_logs (user_id, action, module, description) 
-       VALUES ($1, $2, $3, $4)`,
-      [session.userId, 'update', 'branches', `อัปเดตสาขา ${name}`]
+      `INSERT INTO activity_logs (user_id, action, module, description, ip_address) 
+       VALUES ($1, $2, $3, $4, $5)`,
+      [session.userId, 'update', 'branches', `อัปเดตสาขา ${name}`, ipAddress]
     )
 
     return NextResponse.json({ success: true, data: result.rows[0] })
@@ -144,10 +146,11 @@ export async function DELETE(request: NextRequest) {
     }
 
     // สร้าง activity log
+    const ipAddress = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
     await pool.query(
-      `INSERT INTO activity_logs (user_id, action, module, description) 
-       VALUES ($1, $2, $3, $4)`,
-      [session.userId, 'delete', 'branches', `ลบสาขา ${result.rows[0].name}`]
+      `INSERT INTO activity_logs (user_id, action, module, description, ip_address) 
+       VALUES ($1, $2, $3, $4, $5)`,
+      [session.userId, 'delete', 'branches', `ลบสาขา ${result.rows[0].name}`, ipAddress]
     )
 
     return NextResponse.json({ success: true })
